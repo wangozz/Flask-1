@@ -1,84 +1,75 @@
-# Flask-1
 
+# Flask Pizza Restaurant App
 
-# Flask Pizza Restaurants API
+This is a simple Flask web application for managing a pizza restaurant. It allows you to add restaurants, pizzas, and associate pizzas with restaurants.
 
-This Flask application provides an API for managing pizza restaurants and their associated pizzas.
+## Getting Started
 
-## Table of Contents
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-- [Setup](#setup)
-- [Usage](#usage)
-- [Endpoints](#endpoints)
-- [Models](#models)
-- [Routes](#routes)
-- [Contributing](#contributing)
-- [License](#license)
+### Prerequisites
 
-## Setup
+You'll need the following software installed on your system to run this project:
+
+- Python 3
+- Flask
+- Flask-SQLAlchemy
+- Faker (for generating fake data)
+- [Add any other dependencies]
+
+### Installing
 
 1. Clone the repository to your local machine:
 
+```bash
+git clone https://github.com/wangozz/Flask-1
+Set up a virtual environment and activate it:
 
-git clone https://github.com/yourusername/your-repo.git
-Navigate to the project directory:
+bash
 
-cd Flask-Pizza-Restaurants
+cd Flask-Pizza-Restaurant
+python3 -m venv env
+source env/bin/activate
+Install the required dependencies:
 
-Install the required packages:
+bash
 
 pip install -r requirements.txt
+Set up the database:
 
-Set up the database by running:
+bash
+
+flask db init
+flask db migrate -m "Initial migration"
+flask db upgrade
+Running the Application
+To run the application, use the following command:
+
+bash
+
 
 python app.py
-
-This will create the necessary tables and start the Flask application.
+The app will be accessible at http://localhost:5000.
 
 Usage
-Ensure the Flask application is running (python app.py).
+Navigate to the home page to view a list of restaurants.
+Click on a restaurant to view its details, including associated pizzas.
+Similarly, you can view pizza details.
+Seeding Data
+If you want to populate the database with some initial data, you can run the seed.py script:
 
-Use a tool like Postman to make requests to the API endpoints.
+bash
 
-Endpoints
-
-GET /restaurants: Get a list of all restaurants.
-GET /restaurants/:id: Get details of a specific restaurant.
-DELETE /restaurants/:id: Delete a restaurant.
-GET /pizzas: Get a list of all pizzas.
-POST /restaurant_pizzas: Create a new RestaurantPizza.
-
-Models
-
-Restaurant
-
-id (Integer): Unique identifier for the restaurant.
-name (String): Name of the restaurant (max 50 characters).
-address (String): Address of the restaurant.
-
-Pizza
-id (Integer): Unique identifier for the pizza.
-name (String): Name of the pizza.
-ingredients (String): Ingredients used in the pizza.
-created_at (DateTime): Timestamp of when the pizza was created.
-updated_at (DateTime): Timestamp of when the pizza was last updated.
-
-RestaurantPizza
-id (Integer): Unique identifier for the restaurant-pizza association.
-restaurant_id (Integer): Foreign key referencing the associated restaurant.
-pizza_id (Integer): Foreign key referencing the associated pizza.
-price (Float): Price of the pizza at the restaurant.
-created_at (DateTime): Timestamp of when the association was created.
-
-Routes
-routes/restaurants.py: Contains routes related to restaurants.
-routes/pizzas.py: Contains routes related to pizzas.
-routes/restaurant_pizzas.py: Contains routes related to restaurant-pizza associations.
-
-
+python seed.py
 Contributing
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
-If you'd like to contribute, please fork the repository and create a new branch. Make your changes and submit a pull request.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
+Acknowledgments
+Faker for providing fake data for testing.
+Flask for the web framework.
+SQLAlchemy for database management
 
 
